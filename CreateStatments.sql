@@ -6,6 +6,8 @@ DROP DATABASE ConstructionDB;
 CREATE DATABASE ConstructionDB;
 GO
 
+USE ConstructionDB;
+
 CREATE TABLE [Contractor] (
   [contractorID] int PRIMARY KEY,
   [contractorName] varchar(50),
@@ -56,13 +58,13 @@ CREATE TABLE [Project] (
 	[locationID] int,
 	[clientID] int,
 	[contractorID] int,
-	CONSTRAINT locationFK 
+	CONSTRAINT FK_LocationProject
 		FOREIGN KEY ([locationID])
 		REFERENCES [Location]([locationID]),
-	CONSTRAINT clientFK
+	CONSTRAINT FK_ClientProject
 		FOREIGN KEY ([clientID])
 		REFERENCES [Client]([clientID]),
-	CONSTRAINT contractorFK
+	CONSTRAINT FK_ContractorProject
 		FOREIGN KEY ([contractorID])
 		REFERENCES [Contractor]([contractorID])
 )
@@ -75,7 +77,7 @@ CREATE TABLE [Permit] (
 	[permitDocumentLink] varchar(30),
 	[approverName] varchar(30),
 	[projectID] int,
-	CONSTRAINT projectFK
+	CONSTRAINT FK_ProjectPermit
 		FOREIGN KEY ([projectID])
 		REFERENCES [Project]([projectID])
 )
@@ -84,7 +86,7 @@ GO
 CREATE TABLE [Invoice] (
 	[invoiceID] int PRIMARY KEY,
 	[projectID] int,
-	CONSTRAINT projectFK
+	CONSTRAINT FK_ProjectInvoice
 		FOREIGN KEY ([projectID])
 		REFERENCES [Project]([projectID])
 )
@@ -97,10 +99,10 @@ CREATE TABLE [InvoiceItem] (
 	[supplierID] int,
 	[invoiceID] int,
 	[cost] money,
-	CONSTRAINT supplierFK
+	CONSTRAINT FK_SupplierInvoiceItem
 		FOREIGN KEY ([supplierID])
 		REFERENCES [Supplier]([supplierID]),
-	CONSTRAINT invoiceFK
+	CONSTRAINT FK_InvoiceInvoiceItem
 		FOREIGN KEY ([invoiceID])
 		REFERENCES [Invoice]([invoiceID])
 )
@@ -112,7 +114,7 @@ CREATE TABLE [Engineer] (
 	[engineerSurname] varchar(50),
 	[type] nvarchar(255) NOT NULL CHECK ([type] IN ('INFRASTRUCTURE', 'STRUCTURAL', 'ENVIRONMENTAL', 'GEOTECHNICAL', 'TRANSPORTATION')),
 	[projectID] int,
-	CONSTRAINT projectFK
+	CONSTRAINT FK_ProjectEngineer
 		FOREIGN KEY ([projectID])
 		REFERENCES [Project]([projectID])
 )
