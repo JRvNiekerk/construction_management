@@ -8,15 +8,8 @@ GO
 
 USE ConstructionDB;
 
-CREATE TABLE [Contractor] (
-  [contractorID] int PRIMARY KEY,
-  [contractorName] varchar(50),
-  [contractorSurname] varchar(50)
-)
-GO
-
 CREATE TABLE [Client] (
-  [clientID] int PRIMARY KEY,
+  [clientID] int IDENTITY(1001,1) PRIMARY KEY ,
   [clientName] varchar(50),
   [clientSurname] varchar(50),
   [clientMobile] varchar(10),
@@ -25,14 +18,23 @@ CREATE TABLE [Client] (
 )
 GO
 
+CREATE TABLE [Contractor] (
+  [contractorID] int IDENTITY(2001,1) PRIMARY KEY  ,
+  [contractorName] varchar(50),
+  [contractorSurname] varchar(50)
+)
+GO
+
+
+
 CREATE TABLE [Role] (
-  [roleID] int PRIMARY KEY,
+  [roleID] int IDENTITY(3001,1) PRIMARY KEY ,
   [name] varchar(20)
 )
 GO
 
 CREATE TABLE [Location] (
-  [locationID] int PRIMARY KEY,
+  [locationID] int IDENTITY(4001,1) PRIMARY KEY ,
   [streetAddress] varchar(70),
   [city] varchar(50),
   [province] varchar(30),
@@ -41,7 +43,7 @@ CREATE TABLE [Location] (
 GO
 
 CREATE TABLE [Supplier] (
-  [supplierID] int PRIMARY KEY,
+  [supplierID] int IDENTITY(5001,1) PRIMARY KEY ,
   [supplierName] varchar(50),
   [supplierDescription] varchar(100),
   [locationID] int
@@ -49,7 +51,7 @@ CREATE TABLE [Supplier] (
 GO
 
 CREATE TABLE [Project] (
-	[projectID] int PRIMARY KEY,
+	[projectID] int IDENTITY(6001,1) PRIMARY KEY,
 	[projectName] varchar(50),
 	[projectStatus] nvarchar(255) NOT NULL CHECK ([projectStatus] IN ('approved', 'pending', 'declined', 'in_progress', 'completed')),
 	[projectBudget] money,
@@ -71,7 +73,7 @@ CREATE TABLE [Project] (
 GO
 
 CREATE TABLE [Permit] (
-	[permitID] int PRIMARY KEY,
+	[permitID] int IDENTITY(7001,1) PRIMARY KEY,
 	[permitName] varchar(30),
 	[permitDescription] varchar(70),
 	[permitDocumentLink] varchar(30),
@@ -84,7 +86,7 @@ CREATE TABLE [Permit] (
 GO
 
 CREATE TABLE [Invoice] (
-	[invoiceID] int PRIMARY KEY,
+	[invoiceID] int IDENTITY(8001,1) PRIMARY KEY,
 	[projectID] int,
 	CONSTRAINT FK_ProjectInvoice
 		FOREIGN KEY ([projectID])
@@ -93,7 +95,7 @@ CREATE TABLE [Invoice] (
 GO
 
 CREATE TABLE [InvoiceItem] (
-	[itemID] int PRIMARY KEY,
+	[itemID] int IDENTITY(9001,1) PRIMARY KEY,
 	[invoiceItem] varchar(50),
 	[itemQuantity] int,
 	[supplierID] int,
@@ -109,7 +111,7 @@ CREATE TABLE [InvoiceItem] (
 GO
 
 CREATE TABLE [Engineer] (
-	[engineerID] int PRIMARY KEY,
+	[engineerID] int IDENTITY(10001,1) PRIMARY KEY,
 	[engineerName] varchar(50),
 	[engineerSurname] varchar(50),
 	[type] nvarchar(255) NOT NULL CHECK ([type] IN ('INFRASTRUCTURE', 'STRUCTURAL', 'ENVIRONMENTAL', 'GEOTECHNICAL', 'TRANSPORTATION')),
@@ -123,7 +125,7 @@ GO
 
 
 CREATE TABLE [Subcontractor] (
-	[subcontractorID] int PRIMARY KEY,
+	[subcontractorID] int IDENTITY(11001,1) PRIMARY KEY,
 	[subcontractorName] varchar(50),
 	[subcontractorSurname] varchar(50),
 	[hoursWorked] int,
