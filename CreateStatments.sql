@@ -12,8 +12,8 @@ CREATE TABLE [Client] (
   [clientID] int IDENTITY(1001,1) PRIMARY KEY ,
   [clientName] varchar(50),
   [clientSurname] varchar(50),
-  [clientMobile] varchar(10),
-  [clientEmailAdress] varchar(30),
+  [clientMobile] varchar(12),
+  [clientEmailAdress] varchar(50),
   [companyName] varchar(40)
 )
 GO
