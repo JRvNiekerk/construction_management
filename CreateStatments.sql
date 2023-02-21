@@ -45,7 +45,7 @@ GO
 CREATE TABLE [Supplier] (
   [supplierID] int IDENTITY(5001,1) PRIMARY KEY ,
   [supplierName] varchar(50),
-  [supplierDescription] varchar(100),
+  [supplierDescription] varchar(300),
   [locationID] int
 )
 GO

@@ -19,7 +19,7 @@ VALUES  ('1567 Ireland St', 'White River', 'Mpumalanga', '1254'),
 GO
 
 INSERT INTO Contractor (contractorName, contractorSurname) 
-VALUES  ('Karita', 'Sheahan');
+VALUES  ('Karita', 'Sheahan'),
         ('Hali', 'Ridler'),
         ('Leupold', 'Ricca'),
         ('Adan', 'Pakenham'),
@@ -84,7 +84,7 @@ VALUES  ('Jelutong', 'In_Progress', 3792670.97, '2023-02-07', '2025-12-25', 4002
         ('Maricao Cimun', 'In_Progress', 1927245.49, '2023-07-29', '2025-07-19', 4004, 1018, 2009),
         ('Smooth Woodyaster', 'In_Progress', 7429638.78, '2024-04-16', '2025-07-07', 4010, 1028, 2005),
         ('Narcissus Anemone', 'In_Progress', 6448653.61, '2022-09-23', '2023-04-04', 4011, 1021, 2011),
-        ('Laurel', 'In_Progress', 9442278.36', '2022-10-18, '2025-02-23', 4004, 1030, 2005),
+        ('Laurel', 'In_Progress', 9442278.36, '2022-10-18', '2025-02-23', 4004, 1030, 2005),
         ('Rattan''s Sandmat', 'In_Progress', 2192111.58, '2024-11-20', '2025-08-24', 4005, 1008, 2005),
         ('Palmer''s Mariposa Lily', 'Completed', 6021935.77, '2023-07-07', '2024-04-09', 4005, 1019, 2011),
         ('Oregon False Goldenaster', 'Completed', 154452.30, '2024-12-13', '2026-02-08', 4008, 1006, 2010),
@@ -100,4 +100,43 @@ VALUES  ('Jelutong', 'In_Progress', 3792670.97, '2023-02-07', '2025-12-25', 4002
         ('Fosberg''s Starviolet', 'In_Progress', 2332882.12, '2022-08-06', '2023-12-16', 4013, 1024, 2003),
         ('Broadleaf Noddingcaps', 'In_Progress', 4235716.61, '2024-02-16', '2025-11-13', 4006, 1006, 2005),
         ('Elaeagnus Willow', 'Declined', 3437895.52, '2022-01-09', '2024-02-13', 4015, 1004, 2002);
+GO
+
+INSERT INTO Supplier(supplierName, supplierDescription, locationID)
+VALUES
+	('InnoZ','Construction is a fascinating area of the building industry, but it can also be an extremely time-consuming and expensive one.',4081),
+	('Babblestorm', 'You''ve much more than just bricks and mortar on your hands. When constructing your house you have numerous choices to make, and that''s even truer when you''re building your garden.', 4048),
+	('Thoughtstorm', '16 colourful and easy-to-use construction materials which are used for making everything from a simple path to a beautiful and intricate garden.', 4060),
+	('Babbleopia', 'Construction is a manly occupation. Whether you''re a do-it-yourself type or prefer to hire a professional, this is a great guide for getting started.', 4058),
+	('Yamia', 'Learn landscaping techniques to build a beautiful garden or patio with just a few simple tools, tiles, and bricks.', 4013),
+	('Skynoodle', 'Construction is a vital part of any project. This shop provides a comprehensive materials to the basics of laying bricks and building a house.', 4014),
+	('Buzzster', 'You can build almost anything you can imagine with the right tools and materials. This book shows you how.', 4090),
+	('Thoughtbeat', 'How to build a deck with wood and tiles. Find out about the different types of wood, how to make things secure, and which tiles you can use.', 4075),
+	('Meetz', 'A construction site is a messy, dirty place, but the work that goes into a building can be even more so. A lot of the materials you''ll need to build a home or office will come from the construction site, which means there''s a lot to think about before you sign on the dotted', 4077),
+	('Snaptags', 'Build the ultimate backyard or patio garden with the help of this handy guide. It brings together everything you can get about building a landscaping project from start to finish.', 4029),
+	('Jaxnation', 'You''ve much more than just bricks and mortar on your hands. When constructing your house you have numerous choices to make, and that''s even truer when you''re building your garden.', 4061),
+	('Topicstorm', 'Construction is an important part of any project. Understanding the best way to lay bricks and use materials can make or break a job.', 4074),
+	('Camido', 'Here are some interesting construction projects from around the world. See how these structures were built and the materials used.', 4001);
+GO
+
+INSERT INTO Invoice (projectID)
+VALUES 
+	(6007),
+	(6007),
+	(6018),
+	(6002),
+	(6007),
+	(6002),
+	(6002),
+	(6002),
+	(6018),
+	(6011),
+	(6002),
+	(6011),
+	(6011),
+	(6002),
+	(6020),
+	(6032),
+	(6027),
+	(6023);
 GO
