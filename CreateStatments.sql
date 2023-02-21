@@ -13,7 +13,7 @@ CREATE TABLE [Client] (
   [clientName] varchar(50),
   [clientSurname] varchar(50),
   [clientMobile] varchar(12),
-  [clientEmailAdress] varchar(50),
+  [clientEmailAdress] varchar(80),
   [companyName] varchar(40)
 )
 GO

@@ -1,7 +1,7 @@
 USE ConstructionDB
 GO
 INSERT INTO Location (streetAddress, city, province, postalCode) 
-VALUES (('1567 Ireland St', 'White River', 'Mpumalanga', '1254'),
+VALUES  ('1567 Ireland St', 'White River', 'Mpumalanga', '1254'),
         ('1126 South St', 'Medunsa', 'North West', '0204'),
         ('781 Oranje St', ' Bethlehem', 'Free State', '9703'),
         ('401 Rus St', 'Paarl', 'Western Cape', '7622'),
@@ -15,11 +15,11 @@ VALUES (('1567 Ireland St', 'White River', 'Mpumalanga', '1254'),
         ('1729 Gleemoor Rd', 'Pomfret', 'North West', '8625'),
         ('635 Morgan Rd', 'Ceza', 'KwaZulu-Natal', '3871'),
         ('1993 Morgan Rd', 'Richards Bay', 'KwaZulu-Natal', '3902'),
-        ('897 Protea St', 'Port Elizabeth', 'Eastern Cape', '6045'))
+        ('897 Protea St', 'Port Elizabeth', 'Eastern Cape', '6045');
 GO
 
 INSERT INTO Contractor (contractorName, contractorSurname) 
-VALUES (('Karita', 'Sheahan');
+VALUES  ('Karita', 'Sheahan');
         ('Hali', 'Ridler'),
         ('Leupold', 'Ricca'),
         ('Adan', 'Pakenham'),
@@ -30,10 +30,10 @@ VALUES (('Karita', 'Sheahan');
         ('Cosimo', 'Wodham'),
         ('Avrom', 'Spere'),
         ('Meara', 'Oiseau'),
-        ('Ingunna', 'Glendza'))
+        ('Ingunna', 'Glendza');
 GO
 INSERT INTO Client (clientName, clientSurname, clientMobile, clientEmailAdress, companyName) 
-VALUES (('Amie', 'Lally', '331-774-6108', 'alally0@spotify.com', 'Janyx'),
+VALUES  ('Amie', 'Lally', '331-774-6108', 'alally0@spotify.com', 'Janyx'),
         ('Torrance', 'Whiteson', '677-724-0263', 'twhiteson1@kickstarter.com', 'Twitterlist'),
         ('Dona', 'Kearns', '672-624-1950', 'dkearns2@geocities.com', 'Dynava'),
         ('Lynne', 'Ballintime', '382-984-1618', 'lballintime3@si.edu', 'Meetz'),
@@ -62,10 +62,10 @@ VALUES (('Amie', 'Lally', '331-774-6108', 'alally0@spotify.com', 'Janyx'),
         ('Kaja', 'Kiraly', '944-975-6802', 'kkiralyq@fastcompany.com', 'LiveZ'),
         ('Tallulah', 'Arnaudot', '969-926-0213', 'tarnaudotr@vinaora.com', 'Oyoloo'),
         ('Korney', 'Desouza', '660-609-1614', 'kdesouzas@flickr.com', 'Skimia'),
-        ('Christy', 'Butson', '233-581-2902', 'cbutsont@furl.net', 'Kanoodle'))
+        ('Christy', 'Butson', '233-581-2902', 'cbutsont@furl.net', 'Kanoodle');
 GO
-INSERT INTO Project (projectName, projectStatus, projectBudget, projectStartDate, projectEndDate, locationID, client, contractorID) 
-VALUES (('Lecidea Lichen', 'Pending', 2663683.80, '0000-00-00', '0000-00-00', 4015, 1018, 2001),
+INSERT INTO Project (projectName, projectStatus, projectBudget, projectStartDate, projectEndDate, locationID, clientID, contractorID) 
+VALUES  ('Lecidea Lichen', 'Pending', 2663683.80, '0000-00-00', '0000-00-00', 4015, 1018, 2001),
         ('Alpine Lewisia', 'In_Progress', 7025320.44, '2023-07-16', '2026-07-14', 4010, 1016, 2001),
         ('Truckee Cryptantha', 'In_Progress', 3297919.36, '2022-10-29', '2023-12-14', 4013, 1030, 2001),
         ('White Moho', 'In_Progress', 2756501.06, '2023-09-27', '2025-12-15', 4008, 1001, 2004),
@@ -99,5 +99,5 @@ VALUES (('Lecidea Lichen', 'Pending', 2663683.80, '0000-00-00', '0000-00-00', 40
         ('West Virginia Dewberry', 'Pending', 5750955.60, '0000-00-00', '0000-00-00', 4012, 1025, 2005),
         ('Douglas'' Spikemoss', 'In_Progress', 6371381.06, '2022-05-03', '2024-11-08', 4015, 1013, 2005),
         ('Fragile Filmy Fern', 'Approved', 4417044.18, '2023-12-27', '2025-03-17', 4011, 1020, 2005),
-        ('Seaside Brome', 'Pending', 3287315.64, '0000-00-00', '0000-00-00', 4002, 1006, 2002))
+        ('Seaside Brome', 'Pending', 3287315.64, '0000-00-00', '0000-00-00', 4002, 1006, 2002);
 GO
