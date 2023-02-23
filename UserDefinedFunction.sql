@@ -34,3 +34,19 @@ BEGIN
 	RETURN @Address
 END
 GO
+
+CREATE FUNCTION [udfGetTotalSubcontractor]
+(
+    @ContractorID int
+)
+RETURNS int
+AS
+BEGIN
+    DECLARE @SubContractor int
+    
+    SELECT @SubContractors = count([subcontractorID]) FROM Subcontractor
+    WHERE reportsTo = @SubContractor
+
+    RETURN @SubContractors
+END
+GO
