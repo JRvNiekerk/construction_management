@@ -17,4 +17,20 @@ BEGIN
 END
 GO
 -- Test user defined function.
--- SELECT invoiceID, projectID, udfGetInvoiceTotal(invoiceID) FROM Invoices
+-- SELECT invoiceID, projectID, dbo.udfGetInvoiceTotal(invoiceID) FROM Invoice
+
+CREATE FUNCTION [udfGetFullAddress]
+(
+	@LocationID int
+)
+RETURNS VARCHAR(70)
+AS
+BEGIN
+	DECLARE @Address VARCHAR(70)
+	SELECT @Address = l.streetAddress + ', '+ l.city + ', ' + l.province + ', ' + l.postalCode
+	FROM [Location] AS l
+	WHERE l.locationID = @LocationID
+
+	RETURN @Address
+END
+GO
