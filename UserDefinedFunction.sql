@@ -26,9 +26,9 @@ AS
 BEGIN
     DECLARE @SubContractor int
     
-    SELECT @SubContractors = count([subcontractorID]) FROM Subcontractor
+    SELECT @SubContractor = count([subcontractorID]) FROM Subcontractor
     WHERE reportsTo = @SubContractor
 
-    RETURN @SubContractors
+    RETURN @SubContractor
 END
 GO
