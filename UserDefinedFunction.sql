@@ -16,5 +16,19 @@ BEGIN
     RETURN @Total
 END
 GO
--- Test user defined function.
--- SELECT invoiceID, projectID, udfGetInvoiceTotal(invoiceID) FROM Invoices
+
+CREATE FUNCTION [udfGetTotalSubcontractor]
+(
+    @ContractorID int
+)
+RETURNS int
+AS
+BEGIN
+    DECLARE @SubContractor int
+    
+    SELECT @SubContractors = count([subcontractorID]) FROM Subcontractor
+    WHERE reportsTo = @SubContractor
+
+    RETURN @SubContractors
+END
+GO
