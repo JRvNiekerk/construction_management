@@ -122,7 +122,7 @@ CREATE TABLE [Engineer] (
 	[engineerID] int IDENTITY(10001,1) PRIMARY KEY,
 	[engineerName] varchar(50),
 	[engineerSurname] varchar(50),
-	[type] nvarchar(255) NOT NULL CHECK ([type] IN ('INFRASTRUCTURE', 'STRUCTURAL', 'ENVIRONMENTAL', 'GEOTECHNICAL', 'TRANSPORTATION')),
+	[type] nvarchar(255) NOT NULL CHECK ([type] IN ('INFRASTRUCTURE', 'STRUCTURAL', 'ENVIRONMENTAL', 'GEOTECHNICAL', 'TRANSPORTATION', 'ARCHITECTURAL')),
 	[projectID] int,
 	CONSTRAINT FK_ProjectEngineer
 		FOREIGN KEY ([projectID])
