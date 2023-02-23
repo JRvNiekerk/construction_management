@@ -42,6 +42,14 @@ CREATE TABLE [Location] (
 )
 GO
 
+CREATE TABLE [PermitInfo] (
+	[permitInfoID] int IDENTITY(12001,1) PRIMARY KEY,
+	[permitName] varchar(30),
+	[permitDescription] varchar(140),
+	[approverName] varchar(30)
+)
+GO
+
 CREATE TABLE [Supplier] (
   [supplierID] int IDENTITY(5001,1) PRIMARY KEY ,
   [supplierName] varchar(50),
@@ -72,18 +80,22 @@ CREATE TABLE [Project] (
 )
 GO
 
+
+
 CREATE TABLE [Permit] (
 	[permitID] int IDENTITY(7001,1) PRIMARY KEY,
-	[permitName] varchar(30),
-	[permitDescription] varchar(70),
 	[permitDocumentLink] varchar(30),
-	[approverName] varchar(30),
+	[permitInfoID] int,
 	[projectID] int,
 	CONSTRAINT FK_ProjectPermit
 		FOREIGN KEY ([projectID])
-		REFERENCES [Project]([projectID])
+		REFERENCES [Project]([projectID]),
+	CONSTRAINT FK_PermitInfo
+		FOREIGN KEY ([permitInfoID])
+		REFERENCES [PermitInfo]([permitInfoID])
 )
 GO
+
 
 CREATE TABLE [Invoice] (
 	[invoiceID] int IDENTITY(8001,1) PRIMARY KEY,
