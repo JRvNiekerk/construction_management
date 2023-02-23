@@ -80,11 +80,8 @@ CREATE TABLE [Project] (
 )
 GO
 
-
-
 CREATE TABLE [Permit] (
 	[permitID] int IDENTITY(7001,1) PRIMARY KEY,
-	[permitDocumentLink] varchar(30),
 	[permitInfoID] int,
 	[projectID] int,
 	CONSTRAINT FK_ProjectPermit
@@ -95,7 +92,6 @@ CREATE TABLE [Permit] (
 		REFERENCES [PermitInfo]([permitInfoID])
 )
 GO
-
 
 CREATE TABLE [Invoice] (
 	[invoiceID] int IDENTITY(8001,1) PRIMARY KEY,
