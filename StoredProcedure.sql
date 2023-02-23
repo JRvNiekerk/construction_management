@@ -3,7 +3,9 @@ GO
 
 CREATE PROCEDURE DeclinedProject @projectStatus NVARCHAR(255)
 AS
-BEGIN
+
+BEGIN TRY 
+BEGIN TRANSACTION deleteDeclined
 	DELETE Permit
 	FROM Permit
 	INNER JOIN Project 
@@ -20,5 +22,11 @@ BEGIN
 	INNER JOIN Project
 	ON Project.projectID = Invoice.projectID
 	Where projectStatus = @projectStatus;
-END
-GO
+COMMIT TRANSACTION deleteDeclined
+END TRY
+BEGIN CATCH
+	IF(@@TRANCOUNT > 0)
+	BEGIN
+			ROLLBACK TRANSACTION deleteDeclined
+	END
+END CATCH
